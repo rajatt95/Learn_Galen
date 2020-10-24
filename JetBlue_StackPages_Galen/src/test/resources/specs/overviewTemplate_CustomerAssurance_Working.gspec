@@ -1,0 +1,41 @@
+@objects
+    breadCrumb-1       xpath     (//a[contains(text(),'Home')])[1]
+    breadCrumb-2       xpath     (//span[contains(text(),'Customer Assurance')])[3]
+    customerAssurance  xpath      (//h1[contains(text(),'Customer Assurance')])[1]
+    customerAssuranceSubHeading     xpath   (//div[contains(text(),'ve got your legroom, and your back.')])[1]
+    customerAssuranceDescription    xpath      (//div[contains(text(),' Our mission: make every trip an inspiring one.')])[1] 
+    nav-block-1        xpath     (//jb-navigation-block[contains(text(),'')])[1]
+    nav-block-2        xpath     (//jb-navigation-block[contains(text(),'')])[2]
+    nav-block-3        xpath     (//jb-navigation-block[contains(text(),'')])[3]
+
+
+= Content =
+    @on desktop
+        breadCrumb-1:
+            height 20px
+            width ~ 69px
+            
+        breadCrumb-2:
+            height ~ 20px
+            width ~ 78px
+
+        customerAssurance:
+           above customerAssuranceSubHeading 10 to 20 px
+
+        customerAssuranceSubHeading:
+             below customerAssurance 22 to 26 px 
+
+        nav-block-1:
+            left-of nav-block-2 ~ 24px
+
+        nav-block-2:
+            right-of nav-block-1 10px 
+
+        nav-block-2:
+            left-of nav-block-3 24px
+
+        nav-block-3:
+            right-of nav-block-2 10px 
+
+        nav-block-3:
+            right-of nav-block-1 ~ 344px 

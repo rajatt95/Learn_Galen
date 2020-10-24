@@ -1,0 +1,103 @@
+
+Galen Framework:
+---------------
+Benefits: 
+
+1) Detailed HTML-reports.
+2) Object identification can be done by id, CSS , XPath.
+3) Human-readable language with two variants of syntax (basic and advanced Galen Spec Language)
+
+---------------
+Limitations: 
+
+1) If xpath changes of any element, then, script'll fail and you'll get nothing in report(Blank Page).
+2) Direct Comparison not possible for below conditions: 
+	i) Same environment but, with different release verisons (Prod 1.0 over Prod 2.0)
+	ii) Different environments (Int2 over Prod)
+---------------
+
+Rest, 
+	1) what is possible with Galen?
+	2) How do we put Assertions?
+	3) How to tigger the test script?
+	4) How to check the results?
+
+For that, I'm ready with a project created for Demo purpose
+(URL: https://www-int2.jetblue.com/customer-assurance 
+Programming Language: Java).
+
+We can have a demo for it anytime.
+
+Sheikh, if you want to add/update any point, you can do it.
+
+--------------------------
+https://www.xenonstack.com/insights/what-is-galen-framework/
+1) A test can be disabled in Galen using the @@ disable annotation.
+--------------------------
+GALEN Specs Language Guide:
+
+Every "Ex-" is present in "overviewTemplate_CustomerAssurance.gspec" file.
+Has not covered everything. 
+For details: Visit -> 
+http://galenframework.com/docs/reference-galen-spec-language-guide/
+
+And, use "example" to get different examples
+--------------------------------
+1) Comments- Done
+Ex- # This line a comment 
+--------------------------------
+2) Object definition - 
+	i) Multiple objects definition - p
+	ii) Objects corrections - p
+	iii) Object Groups - Done
+Ex- &navigationBlocks:
+--------------------------------
+3) Ranges - Done
+Ex-             #Range example (to,>,<=,~)
+--------------------------------
+4) Tagging and Sections - Done
+Ex- = Breadcrumb section : Start =
+--------------------------------
+5) Variables - p
+--------------------------------
+6) Special Objects - p
+--------------------------------
+7) Specs Reference - 
+(Search this examples in File by using keywords itself, if required)
+	i) near - p
+	ii) below and above - done
+	iii) left of and right of - done
+	iv) inside - done
+	v) width and height - done
+	vi) aligned - done (Good for Stack Page)
+	vii) Text - done
+	viii) CSS Properties - done(Ex- css)
+(Important! Galen Framework originally was planned as UI testing tool 
+which is not dependent on CSS and HTML. 
+The use of css specs breaks the original purpose 
+and it was introduced only because of high demand from users. 
+Use this css spec rarely and wisely.)
+	ix) Centered
+	x) Absent - done
+	xi) Visible - done
+	xii) Contains - done
+	xiii) On - p
+	xiv) Component - p
+	xv) Count - done
+	xvi) Ocr - p
+	xvii) Color scheme - p
+	xviii) Image - p
+--------------------------------
+8) Advanced Specs - 
+	i) Importing - done
+	ii) Multiple objects with same specs - done
+	iii) for Loop - p
+	iv) forEach Loop - p
+	v) Custom javascript functions in specs - p
+	vi) if statement - p
+	vii) Warning level for specs - p
+	viii) Throwing error - p
+	ix) Custom rules - p
+	x) Notes for specs - p
+------------------------------ - p--
+9) Galen Specs JS Api

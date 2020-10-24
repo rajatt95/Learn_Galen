@@ -1,0 +1,30 @@
+@objects
+   # Header section : Start
+   # Utility Links section : Start
+    flightTracker       xpath       (//a[contains(@routerlink,'/flight-tracker-and-status')])[1]
+    checkIn             xpath       (//a[contains(text(),'Check In')])[1]
+    travelAlerts        xpath       (//a[contains(text(),'Travel Alerts')])[1]
+    espanol             xpath       (//a[contains(@href,'hola')])
+       # Utility Links section : End
+   # Header section : End
+
+   
+#Object Groups
+@groups
+    utilityLinks        flightTracker, checkIn, travelAlerts, espanol
+
+
+= Content =
+# This line a comment  example
+    @on desktop
+
+    #Tagging and Sections example
+    # Utility section : Start
+    = Header: Utility section  =
+        &utilityLinks:
+            css font-size is "18px"
+            css font-family starts "Helvetica" 
+            css font-family ends "sans-serif" 
+            css font-family contains "Arial" 
+            
+    # Utility section : End

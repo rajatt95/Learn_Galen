@@ -1,0 +1,41 @@
+@objects
+   # Footer section : Start
+    getToKnowUs          xpath       (//h4[contains(text(),'Get To Know Us')])
+    policies             xpath       (//h4[contains(text(),'Policies')])
+    jetBlueInAction      xpath       (//h4[contains(text(),'JetBlue In Action')])
+    stayConnected        xpath       (//h4[contains(text(),'Stay Connected')])
+   # Footer section : End
+
+   
+#Object Groups
+@groups
+    footerHeadings   getToKnowUs, policies, jetBlueInAction, stayConnected
+
+
+= Content =
+# This line a comment  example
+    @on desktop
+
+    #Tagging and Sections example
+    # Footer section : Start
+    = Footer section  =
+        &footerHeadings:
+            css font-size is "18px"
+            css font-family starts "Helvetica" 
+            css font-family ends "sans-serif" 
+            css font-family contains "Arial" 
+            
+        getToKnowUs:
+            height ~ 40px
+            width 15px
+        policies:
+            height ~ 40px
+            width 15px
+        jetBlueInAction:
+            height ~ 40px
+            width 15px
+        stayConnected:
+            height ~ 40px
+            width 15px
+
+    # Footer section : End

@@ -1,0 +1,127 @@
+@import jetblue_stackPages_header.gspec
+#@import jetblue_stackPages_footer.gspec
+
+@objects
+   # Breadcrumb section : Start
+    breadCrumb        xpath       (//nav[contains(@aria-label,'breadcrumbs')])[1]
+    Home              xpath     (//a[contains(text(),'Home')])[1]
+    bc_customerAssurance       xpath     (//span[contains(text(),'Customer Assurance')])[3]
+   # Breadcrumb section : End
+
+    customerAssurance  xpath      (//h1[contains(text(),'Customer Assurance')])[1]
+    customerAssuranceSubHeading     xpath   (//div[contains(text(),'ve got your legroom, and your back.')])[1]
+    customerAssuranceDescription    xpath      (//div[contains(text(),' Our mission: make every trip an inspiring one.')])[1] 
+    customerAssuranceImage          xpath       //img[contains(@src,'customer-assurance.svg')]
+    # Navigation Blocks : Start
+    nav-block           xpath    //div[contains(@class,'jb-primary-nav-block-list')]
+    nav-block-1        xpath     (//jb-navigation-block[contains(text(),'')])[1]
+    nav-block-2        xpath     (//jb-navigation-block[contains(text(),'')])[2]
+    nav-block-3        xpath     (//jb-navigation-block[contains(text(),'')])[3]
+    # Navigation Blocks : End
+    anyElement         xpath     (//div[contains(@id,'anyElement')])
+
+#Object Groups
+@groups
+    navigationBlocks   nav-block-1, nav-block-2, nav-block-3
+
+
+= Content =
+# This line a comment  example
+    @on desktop
+
+    #Tagging and Sections example
+    # Breadcrumb section : Start
+    = Breadcrumb section  =
+        breadCrumb:
+            contains Home,bc_customerAssurance
+
+    # Multiple objects with same specs
+#    Home, bc_customerAssurance:
+ #       height ~ 20px
+
+        Home:
+            width ~ 69px
+            inside breadCrumb 10px left right, 20px top bottom 
+             
+
+        bc_customerAssurance:
+            #centered horizontally inside breadCrumb
+            #Range example (to,>,<=,~)
+            width ~ 78px
+            width 100px 
+            width 50 to 200 px 
+            width > 40 px 
+            width < 40 px 
+            width >= 40 px 
+            width <= 40 px 
+            width ~ 100 px 
+            #width 95 to 100 % of breadCrumb/width 
+        
+        # Breadcrumb section : End
+        
+        customerAssurance:
+            above customerAssuranceSubHeading 10 to 20 px
+            css font-size is "18px" 
+            css font-family starts "Helvetica" 
+            css font-family ends "sans-serif" 
+            css font-family contains "Arial" 
+            css font-family matches ".*Arial.*"
+           
+        customerAssuranceSubHeading:
+            below customerAssurance 22 to 26 px 
+            text is "We've got your legroom, and your back." 
+            text starts "We" 
+            text ends "back." 
+            text contains "legroom" 
+            #.* is used; For example -> Welcome, Rajat. Welcome to our website.
+            # Rajat is an User and this name will be changed for different Users.
+            #text matches "We've .* your legroom, and your back. " 
+            
+
+        customerAssuranceDescription:
+            visible
+            height 45 px
+
+        #customerAssuranceImage:
+         #   image file imgs/prod/Customer-assurance.png, error 12px 
+
+        anyElement:
+            absent
+
+    = Navigation Blocks Count section =
+        global:
+            count any nav-block-* is 3 
+            # Count only visible elements
+            count visible nav-block-* is 3 
+            # Count only absent elements
+            count absent nav-block-* is 3 
+        
+    = Navigation Blocks section =
+    # Navigation Blocks section : Start
+        &navigationBlocks:
+            height 30px
+            width 25px
+
+        nav-block:
+            contains nav-block-*
+
+        # Multiple objects with same specs
+        #nav-block-1, nav-block-2:
+        nav-block-*:
+            width 100px
+
+        nav-block-1:
+            left-of nav-block-2 ~ 24px
+            left-of nav-block-3 ~ 48px
+            aligned horizontally all nav-block-2
+
+        nav-block-2:
+            right-of nav-block-1 10px 
+            left-of nav-block-3 24px
+            aligned horizontally all nav-block-3
+
+        nav-block-3:
+            right-of nav-block-2 10px 
+            right-of nav-block-1 ~ 344px 
+            aligned horizontally all nav-block-1
+    # Navigation Blocks section : End
